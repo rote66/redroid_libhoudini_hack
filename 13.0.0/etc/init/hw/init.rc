@@ -57,8 +57,6 @@ on early-init
 
     # Generate ld.config.txt for early executed processes
     exec -- /system/bin/bootstrap/linkerconfig --target /linkerconfig/bootstrap
-    exec -- /system/bin/sh -c "/system/bin/patch /linkerconfig/bootstrap/ld.config.txt < /system/etc/ld_config.patch"
-    exec -- /system/bin/sh -c "/system/bin/patch /linkerconfig/bootstrap/com.android.media.swcodec/ld.config.txt < /system/etc/ld_config_swcodec.patch"
     chmod 644 /linkerconfig/bootstrap/ld.config.txt
     copy /linkerconfig/bootstrap/ld.config.txt /linkerconfig/default/ld.config.txt
     chmod 644 /linkerconfig/default/ld.config.txt
@@ -973,6 +971,10 @@ on post-fs-data
     # Wait for apexd to finish activating APEXes before starting more processes.
     wait_for_prop apexd.status activated
     perform_apex_config
+    	
+    # Patch ld.config after apexd
+    exec -- /system/bin/sh -c "/system/bin/patch /linkerconfig/ld.config.txt < /system/etc/ld_config.patch"
+    exec -- /system/bin/sh -c "/system/bin/patch /linkerconfig/com.android.media.swcodec/ld.config.txt < /system/etc/ld_config_swcodec.patch"
 
     # Special-case /data/media/obb per b/64566063
     mkdir /data/media 0770 media_rw media_rw encryption=None
