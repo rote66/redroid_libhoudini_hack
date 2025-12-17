@@ -1,0 +1,45 @@
+--- ld.config.txt
++++ ld.config.txt
+@@ -284,10 +284,16 @@
+ namespace.sphal.search.paths += /vendor/${LIB}
+ namespace.sphal.search.paths += /vendor/${LIB}/egl
+ namespace.sphal.search.paths += /vendor/${LIB}/hw
++namespace.sphal.search.paths += /system/${LIB}/arm
++namespace.sphal.search.paths += /system/${LIB}/arm/nb
++namespace.sphal.search.paths += /system/${LIB}/arm64
++namespace.sphal.search.paths += /system/${LIB}/arm64/nb
+ namespace.sphal.permitted.paths = /odm/${LIB}
+ namespace.sphal.permitted.paths += /vendor/${LIB}
+ namespace.sphal.permitted.paths += /vendor/odm/${LIB}
+ namespace.sphal.permitted.paths += /system/vendor/${LIB}
++namespace.sphal.permitted.paths += /system/${LIB}/arm
++namespace.sphal.permitted.paths += /system/${LIB}/arm64
+ namespace.sphal.permitted.paths += /data
+ namespace.sphal.asan.search.paths = /data/asan/odm/${LIB}
+ namespace.sphal.asan.search.paths += /odm/${LIB}
+@@ -297,6 +303,14 @@
+ namespace.sphal.asan.search.paths += /vendor/${LIB}/egl
+ namespace.sphal.asan.search.paths += /data/asan/vendor/${LIB}/hw
+ namespace.sphal.asan.search.paths += /vendor/${LIB}/hw
++namespace.sphal.asan.search.paths += /data/asan/system/${LIB}/arm
++namespace.sphal.asan.search.paths += /system/${LIB}/arm
++namespace.sphal.asan.search.paths += /data/asan/system/${LIB}/arm/nb
++namespace.sphal.asan.search.paths += /system/${LIB}/arm/nb
++namespace.sphal.asan.search.paths += /data/asan/system/${LIB}/arm64
++namespace.sphal.asan.search.paths += /system/${LIB}/arm64
++namespace.sphal.asan.search.paths += /data/asan/system/${LIB}/arm64/nb
++namespace.sphal.asan.search.paths += /system/${LIB}/arm64/nb
+ namespace.sphal.asan.permitted.paths = /data/asan/odm/${LIB}
+ namespace.sphal.asan.permitted.paths += /odm/${LIB}
+ namespace.sphal.asan.permitted.paths += /data/asan/vendor/${LIB}
+@@ -305,6 +319,10 @@
+ namespace.sphal.asan.permitted.paths += /vendor/odm/${LIB}
+ namespace.sphal.asan.permitted.paths += /data/asan/system/vendor/${LIB}
+ namespace.sphal.asan.permitted.paths += /system/vendor/${LIB}
++namespace.sphal.asan.permitted.paths += /data/asan/system/${LIB}/arm
++namespace.sphal.asan.permitted.paths += /system/${LIB}/arm
++namespace.sphal.asan.permitted.paths += /data/asan/system/${LIB}/arm64
++namespace.sphal.asan.permitted.paths += /system/${LIB}/arm64
+ namespace.sphal.asan.permitted.paths += /data/asan/data
+ namespace.sphal.asan.permitted.paths += /data
+ namespace.sphal.hwasan.search.paths = /odm/${LIB}/hwasan
